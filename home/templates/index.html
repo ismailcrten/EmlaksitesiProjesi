@@ -1,10 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>İlk Django sayfası</title>
-</head>
-<body>
-ismail çörten
-</body>
-</html>
+{% extends "homebase.html" %}
+{% load static %}
+
+{% block title %} İndex Sayfası {% endblock %}
+{% block keywords %} İndex Sayfası anahtar kelimeler {% endblock %}
+{% block description %} İndex Sayfası açıklama {% endblock %}
+
+{% block sidebar %}
+   {% include "sidebar.html" %}
+{% endblock %}
+
+{% block slider %}
+  {% include "slider.html" %}
+{% endblock %}
+
+
+{% block body %}
+   {% include "content.html" %}
+{% endblock %}
