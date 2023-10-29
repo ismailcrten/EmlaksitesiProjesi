@@ -5,3 +5,7 @@ def index(request):
     text = " merhaba "
     context = {"text": text}
     return render(request, "index.html", context)
+
+
+def about():
+    return None
