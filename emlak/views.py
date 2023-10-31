@@ -1,11 +1,28 @@
 from django.shortcuts import render
+from django.http import HttpResponse
+from .models import Emlak  # Emlak modelini içe aktarın
 
-# Create your views here.
+def category_emlak(request, id, slug):
+    # Burada kategoriye özgü işlemleri yapabilirsiniz
+    # Örneğin, belirli bir kategoriye ait emlakları getirin
+    emlaklar = Emlak.objects.filter(category_id=id)
+
+    # Görünüme gelen veriyi bir şablona iletmek için kullanabilirsiniz
+    context = {
+        'emlaklar': emlaklar,
+        'category_id': id,
+        'category_slug': slug,
+    }
+    return render(request, 'category_emlak.html', context)
+
+def about_us(request):
+    # Hakkımızda sayfası görünümü
+    return render(request, 'about.html')
+
+def contact_us(request):
+    # İletişim sayfası görünümü
+    return render(request, 'contact.html')
+
 def index(request):
-    text = " merhaba "
-    context = {"text": text}
-    return render(request, "index.html", context)
-
-
-def about():
-    return None
+    # Anasayfa görünümü
+    return render(request, 'index.html')

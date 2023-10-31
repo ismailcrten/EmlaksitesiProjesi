@@ -1,10 +1,7 @@
 from django.urls import path
-
 from . import views
 
 urlpatterns = [
-    # ex: /polls/
-    path('', views.index, name='index'),
-    path('hakkimizda/', views.about, name='about'),
-
+    path('category/<int:id>/<slug:slug>/', views.category_emlak, name='category_emlak'),
+    # Diğer URL tanımları buraya eklenir
 ]
