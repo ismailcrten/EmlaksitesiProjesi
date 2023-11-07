@@ -1,5 +1,7 @@
 # Create your models here.
 from django.db import models
+from django.utils.safestring import mark_safe
+
 
 class Category(models.Model):
     STATUS = (
@@ -20,6 +22,7 @@ class Category(models.Model):
     def __str__(self):
         return self.tittle
 
+
 class Emlak(models.Model):
     STATUS = (
         ("True", "Evet"),
@@ -37,5 +40,21 @@ class Emlak(models.Model):
     create_at=models.DateTimeField(auto_now_add=True)
     update_at = models.DateTimeField(auto_now=True)
     slug=models.SlugField(blank=True, null=False)
+
     def __str__(self):
         return self.tittle
+
+    def image_tag(self):
+        return mark_safe('<img src="{}" height="50"/>'.format(self.image.url))
+    image_tag.short_description = 'Image'
+
+class Images(models.Model):
+    emlak = models.ForeignKey(Emlak, on_delete=models.CASCADE)
+    title = models.CharField(max_length=50,)
+    image=models.ImageField(blank=True, upload_to="images/")
+    def __str__(self):
+        return self.title
+
+    def image_tag(self):
+        return mark_safe('<img src="{}" height="50"/>'.format(self.image.url))
+    image_tag.short_description = 'Image'
