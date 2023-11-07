@@ -39,3 +39,11 @@ class Emlak(models.Model):
     slug=models.SlugField(blank=True, null=False)
     def __str__(self):
         return self.tittle
+
+
+class Images(models.Model):
+    emlak = models.ForeignKey(Emlak, on_delete=models.CASCADE)
+    title = models.CharField(max_length=50,)
+    image=models.ImageField(blank=True, upload_to="images/")
+    def __str__(self):
+        return self.title
