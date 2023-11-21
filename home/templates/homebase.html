@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+    <title>{% block title %} My Home Page {% endblock %}</title>
+    <meta name="keywords" content="{% block keywords %} Home Keywords {% endblock %}">
+    <meta name="description" content="{% block description %} Home description  {% endblock %}">
+
+{% load static %}
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,700|Raleway:400,700&display=swap" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="{% static 'css/responsive.css' %}" rel="stylesheet" />
+{% block head %}
+
+
+    {% endblock %}
+</head>
+
+<body>
+{% include 'header.html' %}
+{% block content %}
+{% endblock %}
+{% include 'footer.html' %}
+</body>
+</html>
