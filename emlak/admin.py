@@ -18,6 +18,9 @@ class EmlakAdmin(admin.ModelAdmin):
     list_filter = ["status"]
     inlines = [EmlakImageInline]
 
+class ImagesAdmin(admin.ModelAdmin):
+    list_display = ["title", "emlak", "image"]
+    list_filter = ["emlak"]
 
 
 class ImagesAdmin(admin.ModelAdmin):
