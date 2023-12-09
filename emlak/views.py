@@ -15,9 +15,9 @@ def category_emlak(request, id, slug):
     }
     return render(request, 'category_emlak.html', context)
 
-def about_us(request):
+def hakkimizda(request):
     # Hakkımızda sayfası görünümü
-    return render(request, 'about.html')
+    return render(request, 'hakkimizda.html')
 
 def contact_us(request):
     # İletişim sayfası görünümü

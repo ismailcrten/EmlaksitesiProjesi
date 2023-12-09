@@ -5,6 +5,8 @@ from . import views
 app_name = 'home'  # Bu, uygulama ad alanını ayarlar
 urlpatterns = [
     path('', views.index, name='index'),
+    path('hakkimizda/', views.hakkimizda, name='hakkimizda'),
+
     # Diğer URL şemaları
 ]
 

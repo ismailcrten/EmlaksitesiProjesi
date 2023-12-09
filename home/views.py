@@ -13,3 +13,9 @@ def index(request):
     }
     return render(request, template_name='index.html', context=context)
 
+def hakkimizda(request):
+    setting = Setting.objects.get(pk=1)
+    context = {
+        'setting': setting, 'page': 'hakkkimizda'
+    }
+    return render(request, template_name='hakkimizda.html', context=context)
