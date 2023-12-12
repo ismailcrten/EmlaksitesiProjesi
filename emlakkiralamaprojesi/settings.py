@@ -38,7 +38,7 @@ ROOT_URLCONF = 'emlakkiralamaprojesi.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'home/templates')],
+        'DIRS': [os.path.join(BASE_DIR, '/home/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -89,6 +89,8 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 MEDIA_URL = '/uploads/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
+
+
 
 SITE_ID = 1
 CKEDITOR_JQUERY_URL = 'https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js'

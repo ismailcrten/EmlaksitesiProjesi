@@ -1,7 +1,9 @@
 from ckeditor_uploader.fields import RichTextUploadingField
 from django.db import models
 
+
 class Setting (models.Model):
+    objects = None
     STATUS = (
         ("True", "Evet"),
         ("False", "Hayır"),

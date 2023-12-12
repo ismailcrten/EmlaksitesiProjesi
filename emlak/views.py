@@ -19,6 +19,7 @@ def hakkimizda(request):
     # Hakkımızda sayfası görünümü
     return render(request, 'hakkimizda.html')
 
+
 def contact_us(request):
     # İletişim sayfası görünümü
     return render(request, 'contact.html')

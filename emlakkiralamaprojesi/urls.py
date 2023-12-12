@@ -8,7 +8,8 @@ from emlak import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('emlak/', include('emlak.urls')),
-    path ('hakkimizda/',views.hakkimizda, name='hakkimizda' ),# emlak uygulamasının URL'leri
+    path('hakkimizda/',views.hakkimizda, name='hakkimizda' ),
+    path('hakkimizda/index.html/', views.index, name= 'Anasayfa'),
     path('', include('home.urls')),  # Ana sayfa için home uygulamasının URL'leri
     path('ckeditor/', include('ckeditor_uploader.urls')),  # ckeditor için URL'ler
 ]

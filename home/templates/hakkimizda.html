@@ -1,24 +1,19 @@
+<!DOCTYPE html>
 
-<!DOCTYPE
+<head>
+
 
 {% load static %}
 
-<html>
-
-<head>
-  <!-- Basic -->
 
 
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <!-- Mobile Metas -->
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <!-- Site Metas -->
-  <meta name="keywords" content="" />
-  <meta name="description" content="" />
-  <meta name="author" content="" />
+{% block description %} {{ setting.description }} {% endblock %}
+{% block keywords %} {{ setting.keywords }} {% endblock %}
+{% block title %} {{ setting.title }} {% endblock %}
 
-  <title>Teaser</title>
+
+
+
 
 
   <!-- bootstrap core css -->
@@ -70,7 +65,8 @@
             </div>
             <div id="myNav" class="overlay">
               <div class="overlay-content">
-                <a href="index.html">HOME</a>
+               <a href="index.html">Ana Sayfa</a>
+
                 <a href="about.html">ABOUT</a>
                 <a href="house.html">HOUSE</a>
                 <a href="price.html">PRICING</a>
@@ -102,14 +98,10 @@
           <div class="detail-box">
             <div class="heading_container">
               <h2>
-                About Our Apartment
+              Şirket Hakkında
               </h2>
+    <p>{{ setting.aboutus | safe}}</p>
             </div>
-            <p>
-              There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration
-              in
-              some form, by injected humour, or randomised words
-            </p>
             <a href="">
               Read More
             </a>
@@ -258,6 +250,5 @@
   <script type="text/javascript" src="{%static  'js/custom.js' %}"></script>
 
 </body>
-</body>
-
+<link rel="shortcut icon" type="image/x-icon" href="{{setting.icon.url}}"/>
 </html>
