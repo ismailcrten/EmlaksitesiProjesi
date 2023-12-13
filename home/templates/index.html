@@ -1,16 +1,90 @@
 {% extends 'homebase.html' %}
+{% load static %}
 
-{% block title %} {{ setting.title }} {% endblock %}
-{% block description %} {{ setting.description }} {% endblock %}
-{% block keywords %} {{ setting.keywords }} {% endblock %}
+{% block style %}
+<style>
+    .w3-home-container {
+        margin-top:1%;
+        margin-left: 5%;
+        margin-right: 5%;
+        margin-bottom: 1%;
+    }
 
-{% block head %}
-     <link rel="shortcut icon" type="image/x-icon" href="{{setting.icon.url}}"/>
+    @media only screen and (max-width: 600px) {
+        .w3-home-container {
+            margin: 0!important;
+            padding: 0!important;
+        }
+    }
+</style>
 {% endblock %}
+{%block body%}
+<div>
+<div class="jumbotron text-center" style="margin-bottom:0;" >
+    <h1>Rental</h1>
+    <p>Live in your dream house</p>
+</div>
+<div class="w3-container w3-home-container">
 
-
-{% include "header.html" %}
-
-{% block content %} {% include "content.html" %} {% endblock %}
-
-{% include "footer.html" %}
+    {% if emlak %}
+    <h5 class="my-4" style="text-align: center;"> Apartment - Recommended for You.</h5>
+    <div class="w3-row-padding">
+        <div class="col carousel slide my-3" data-ride="carousel">
+            <div class="carousel-inner no-padding">
+                <div class="carousel-item active">
+                    {% for i in emlak %}
+                    <div class="w3-third w3-container w3-margin-bottom">
+                        <div class="card" style=" background-color: #e9ecef;">
+                            <img src= {{i.img.url}} class="w3-hover-opacity" style="height: 250px; width: 100%" alt="...">
+                            <div class="card-body">
+                                <form action="/descr"  style="margin-bottom: 5px;">
+                            <button name="slug" value="{{i.slug}}" style="background-color: grey"> Quick view</button>
+                                </form>
+                                <p class="card-text">{{i.desc|slice:"0:20"}}...</p>
+                                <p>{{i.location}}, {{i.city}}, {{i.state}}</p>
+                                <form action="/descr"  style="margin-bottom: 5px;">
+                                    <button name="id" value="{{i.room_id}}" style="background-color: grey"> Quick view</button>
+                                </form>
+                                <!-- <a href="descr/{{i.room_id}}">
+                                    <button style="background-color: grey"> Quick view</button>
+                                </a> -->
+                            </div>
+                        </div>
+                    </div>
+                    {% if forloop.counter|divisibleby:3 and forloop.counter > 0 and forloop.counter < emlak|length %}
+                </div>
+                <div class="carousel-item">
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        </a>
+    </div>
+{% if emlak %}
+    {% for ilan in emlak %}
+        <div class="w3-third w3-container w3-margin-bottom">
+            <div class="card" style="background-color: #e9ecef;">
+                <img src="{{ ilan.image.url }}" class="w3-hover-opacity" style="height: 250px; width: 100%" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <span id="pricepr{{ ilan.id }}">
+                            <p><b><h3>₹{{ ilan.price }}</h3></b></p>
+                        </span>
+                    </h5>
+                    <p class="card-text">{{ ilan.description|slice:"0:20" }}...</p>
+                    <p>{{ ilan.location }}, {{ ilan.city }}, {{ ilan.state }}</p>
+                    <form action="/descr" style="margin-bottom: 5px;">
+                        <button name="id" value="{{ ilan.id }}" style="background-color: grey">Quick view</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% endif %}
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

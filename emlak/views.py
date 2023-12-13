@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Emlak  # Emlak modelini içe aktarın
 
+
 def category_emlak(request, id, slug):
     # Burada kategoriye özgü işlemleri yapabilirsiniz
     # Örneğin, belirli bir kategoriye ait emlakları getirin
@@ -16,8 +17,10 @@ def category_emlak(request, id, slug):
     return render(request, 'category_emlak.html', context)
 
 def hakkimizda(request):
-    # Hakkımızda sayfası görünümü
-    return render(request, 'hakkimizda.html')
+    setting = Setting.objects.get(pk=1)
+    context = {'setting': setting, 'page': 'hakkimizda'}
+    return render(request, 'hakkimizda.html', context = context)
+
 
 
 def contact_us(request):

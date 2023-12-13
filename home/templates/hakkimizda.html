@@ -1,254 +1,56 @@
-<!DOCTYPE html>
-
-<head>
-
-
+{% extends 'homebase.html' %}
 {% load static %}
+{% block style %}
+<style>
+    .w3-about-container {
+        margin-top:1%; 
+        margin-left: 5%; 
+        margin-right: 5%; 
+        margin-bottom: 1%;
+    }
 
+    @media only screen and (max-width: 600px) {
+        .w3-about-container {
+            margin: 0!important;
+            padding: 0!important;
+        }
+    }
 
+    .about-text-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: sans-serif;
+        font-size: 160%;
+    }
 
-{% block description %} {{ setting.description }} {% endblock %}
-{% block keywords %} {{ setting.keywords }} {% endblock %}
-{% block title %} {{ setting.title }} {% endblock %}
+    .row {
+        margin-top: 3em!important;
+        margin-bottom: 3em!important;
+    }
+</style>
+{% endblock %}
 
+{% block body %} 
+<div class="jumbotron text-center">
+    <h1>About Us</h1>
 
-
-
-
-
-  <!-- bootstrap core css -->
-  <link rel="stylesheet" type="text/css" href="{% static  'css/bootstrap.css' %}" />
-
-  <!-- fonts style -->
-  <link href="https://fonts.googleapis.com/css?family=Poppins:400,700|Raleway:400,700&display=swap" rel="stylesheet">
-  <!-- Custom styles for this template -->
-  <link href="{% static  'css/style.css' %}" rel="stylesheet" />
-  <!-- responsive style -->
-  <link href="{%static  'css/responsive.css' %}" rel="stylesheet" />
-</head>
-
-<body class="sub_page">
-  <div class="hero_area">
-    <!-- header section strats -->
-    <header class="header_section">
-      <div class="container-fluid">
-        <nav class="navbar navbar-expand-lg custom_nav-container">
-          <a class="navbar-brand" href="index.html">
-            <img src="{%static  'images/logo.png' %}" alt="" />
-          </a>
-          <div class="navbar-collapse" id="">
-            <ul class="navbar-nav justify-content-between ">
-              <div class="User_option">
-                <li class="">
-                  <a class="mr-4" href="">
-                    Login
-                  </a>
-                  <a class="" href="">
-                    Sign up
-                  </a>
-                </li>
-              </div>
-            </ul>
-
-            <div class="custom_menu-btn">
-              <button onclick="openNav()">
-                <span class="s-1">
-
-                </span>
-                <span class="s-2">
-
-                </span>
-                <span class="s-3">
-
-                </span>
-              </button>
-            </div>
-            <div id="myNav" class="overlay">
-              <div class="overlay-content">
-               <a href="index.html">Ana Sayfa</a>
-
-                <a href="about.html">ABOUT</a>
-                <a href="house.html">HOUSE</a>
-                <a href="price.html">PRICING</a>
-                <a href="contact.html">CONTACT US</a>
-              </div>
-            </div>
-          </div>
-        </nav>
-      </div>
-    </header>
-    <!-- end header section -->
-  </div>
-
-
-  <!-- about section -->
-
-  <section class="about_section layout_padding-bottom">
-    <div class="square-box">
-      <img src="{%static  'images/square.png' %}" alt="">
+</div>
+<h2 class="w3-center">Our Services</h2>
+<div class="row w3-about-container">
+    <div class="col-md-6 col-sm-12">
+        <img src="{% static 'assets/roomvala.jpg'%}" style="width: 100%;height: 100%;">
     </div>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6">
-          <div class="img-box">
-            <img src="{%static  'images/about-img.jpg' %}" alt="">
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="detail-box">
-            <div class="heading_container">
-              <h2>
-              Şirket Hakkında
-              </h2>
-    <p>{{ setting.aboutus | safe}}</p>
-            </div>
-            <a href="">
-              Read More
-            </a>
-          </div>
-        </div>
-      </div>
+    <div class="col-md-6 col-sm-12 about-text-container">
+        <p>{{setting.aboutus |safe}}</p>
     </div>
-  </section>
-
-  <!-- end about section -->
-
-
-  <!-- info section -->
-  <section class="info_section ">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-3">
-          <div class="info_contact">
-            <h5>
-              About Apartment
-            </h5>
-            <div>
-              <div class="img-box">
-                <img src="{%static  'images/location.png' %}" width="18px" alt="">
-              </div>
-              <p>
-                Address
-              </p>
-            </div>
-            <div>
-              <div class="img-box">
-                <img src="{%static  'images/phone.png' %}" width="12px" alt="">
-              </div>
-              <p>
-                +01 1234567890
-              </p>
-            </div>
-            <div>
-              <div class="img-box">
-                <img src="{%static  'images/mail.png' %}" width="18px" alt="">
-              </div>
-              <p>
-                demo@gmail.com
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="info_info">
-            <h5>
-              Information
-            </h5>
-            <p>
-              ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-            </p>
-          </div>
-        </div>
-
-        <div class="col-md-3">
-          <div class="info_links">
-            <h5>
-              Useful Link
-            </h5>
-            <ul>
-              <li>
-                <a href="">
-                  There are many
-                </a>
-              </li>
-              <li>
-                <a href="">
-                  variations of
-                </a>
-              </li>
-              <li>
-                <a href="">
-                  passages of
-                </a>
-              </li>
-              <li>
-                <a href="">
-                  Lorem Ipsum
-                </a>
-              </li>
-              <li>
-                <a href="">
-                  available, but
-                </a>
-              </li>
-              <li>
-                <a href="">
-                  the i
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="info_form ">
-            <h5>
-              Newsletter
-            </h5>
-            <form action="">
-              <input type="email" placeholder="Enter your email">
-              <button>
-                Subscribe
-              </button>
-            </form>
-            <div class="social_box">
-              <a href="">
-                <img src="{%static  'images/fb.png' %}" alt="">
-              </a>
-              <a href="">
-                <img src="{%static  'images/twitter.png' %}" alt="">
-              </a>
-              <a href="">
-                <img src="{%static  'images/linkedin.png' %}" alt="">
-              </a>
-              <a href="">
-                <img src="{%static  'images/youtube.png' %}" alt="">
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
+</div>
+<div class="row w3-about-container">
+    <div class="col-md-6 col-sm-12 about-text-container">
+        <p>You can choose rooms from thousands of certified and rated rooms. Our aim is to provide safe and comfortable home.Register as owner or roommate and find a person you want to share the room with.</p>
     </div>
-  </section>
-
-  <!-- end info_section -->
-
-
-  <!-- footer section -->
-  <section class="container-fluid footer_section ">
-    <div class="container">
-      <p>
-        &copy; <span id="displayYear"></span> All Rights Reserved By
-        <a href="https://html.design/">Free Html Templates</a>
-      </p>
+    <div class="col-md-6 col-sm-12">
+        <img src="{% static 'assets/hand.jpg'%}" style="width: 100%;height: 100%;">
     </div>
-  </section>
-  <!-- end  footer section -->
-
-
-  <script type="text/javascript" src="{%static  'js/jquery-3.4.1.min.js' %}"></script>
-  <script type="text/javascript" src="{%static  'js/bootstrap.js' %}"></script>
-  <script type="text/javascript" src="{%static  'js/custom.js' %}"></script>
-
-</body>
-<link rel="shortcut icon" type="image/x-icon" href="{{setting.icon.url}}"/>
-</html>
+</div>
+{% endblock %}

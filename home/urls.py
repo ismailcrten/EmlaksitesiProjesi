@@ -2,11 +2,14 @@
 import home
 from django.urls import path
 from . import views
+from django.apps import AppConfig
 
 app_name = 'home'  # Bu, uygulama ad alanını ayarlar
 urlpatterns = [
     path('', views.index, name='index'),
-    path('hakkimizda/', views.hakkimizda, name='hakkimizda'),
+    path('hakkimizda/', views.hakkimizda),
+    path('iletisim/', views.iletisim),
+
 
 
 
@@ -18,7 +21,7 @@ urlpatterns = [
 # Create your models here.
 # home uygulamasındaki apps.py dosyası
 
-from django.apps import AppConfig
+
 
 
 class HomeConfig(AppConfig):
