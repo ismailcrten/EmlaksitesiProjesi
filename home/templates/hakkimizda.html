@@ -1,56 +1,36 @@
-{% extends 'homebase.html' %}
-{% load static %}
-{% block style %}
-<style>
-    .w3-about-container {
-        margin-top:1%; 
-        margin-left: 5%; 
-        margin-right: 5%; 
-        margin-bottom: 1%;
-    }
 
-    @media only screen and (max-width: 600px) {
-        .w3-about-container {
-            margin: 0!important;
-            padding: 0!important;
-        }
-    }
-
-    .about-text-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-family: sans-serif;
-        font-size: 160%;
-    }
-
-    .row {
-        margin-top: 3em!important;
-        margin-bottom: 3em!important;
-    }
-</style>
-{% endblock %}
-
-{% block body %} 
-<div class="jumbotron text-center">
-    <h1>About Us</h1>
-
-</div>
-<h2 class="w3-center">Our Services</h2>
-<div class="row w3-about-container">
-    <div class="col-md-6 col-sm-12">
-        <img src="{% static 'assets/roomvala.jpg'%}" style="width: 100%;height: 100%;">
+  <section id="aa-about-us">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="aa-about-us-area">
+            <div class="row">
+              <div class="col-md-5">
+                <div class="aa-about-us-left">
+                  <img src="img/about-us.png" alt="image">
+                </div>
+              </div>
+              <div class="col-md-7">
+                <div class="aa-about-us-right">
+                  <div class="aa-title">
+                    <h2>About Us</h2>
+                    <span></span>
+                  </div>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat ab dignissimos vitae maxime adipisci blanditiis rerum quae quos! Id at rerum maxime modi fugit vero corrupti, ad atque sit laborum ipsum sunt blanditiis suscipit odio, aut nostrum assumenda nobis rem a maiores temporibus non commodi laboriosam, doloremque expedita! Corporis, provident?</p>
+                  <ul>
+                    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse, blanditiis.</li>
+                    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+                    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia.</li>
+                    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse, blanditiis.</li>
+                    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+                    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="col-md-6 col-sm-12 about-text-container">
-        <p>{{setting.aboutus |safe}}</p>
-    </div>
-</div>
-<div class="row w3-about-container">
-    <div class="col-md-6 col-sm-12 about-text-container">
-        <p>You can choose rooms from thousands of certified and rated rooms. Our aim is to provide safe and comfortable home.Register as owner or roommate and find a person you want to share the room with.</p>
-    </div>
-    <div class="col-md-6 col-sm-12">
-        <img src="{% static 'assets/hand.jpg'%}" style="width: 100%;height: 100%;">
-    </div>
-</div>
-{% endblock %}
+  </section>
+  <!-- / About us -->

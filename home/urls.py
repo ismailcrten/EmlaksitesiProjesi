@@ -14,6 +14,7 @@ urlpatterns = [
 
 
 
+
     # Diğer URL şemaları
 ]
 
