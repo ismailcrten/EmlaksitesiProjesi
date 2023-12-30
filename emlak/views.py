@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from home.models import Setting
+
 from .models import Emlak  # Emlak modelini içe aktarın
 
 
@@ -15,6 +17,10 @@ def category_emlak(request, id, slug):
         'category_slug': slug,
     }
     return render(request, 'category_emlak.html', context)
+
+
+
+
 
 def hakkimizda(request):
     setting = Setting.objects.get(pk=1)

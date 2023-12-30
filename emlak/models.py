@@ -9,7 +9,7 @@ class Category(models.Model):
         ("True", "Evet"),
         ("False", "Hayır"),
     )
-    tittle = models.CharField(max_length=30)
+    title = models.CharField(max_length=30)
     keywords = models.CharField(max_length=255)
     description = models.CharField(max_length=200)
     image=models.ImageField(blank=True, upload_to="images/")
@@ -21,7 +21,7 @@ class Category(models.Model):
 
 
     def __str__(self):
-        return self.tittle
+        return self.title
 
 
 class Emlak(models.Model):
@@ -30,12 +30,12 @@ class Emlak(models.Model):
         ("False", "Hayır"),
     )
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
-    tittle = models.CharField(max_length=30)
+    title = models.CharField(max_length=30)
     keywords = models.CharField(max_length=255)
     description = models.CharField(max_length=200)
     image=models.ImageField(blank=True, upload_to="images/")
-    price= models.FloatField()
-    amount = models.IntegerField()
+    price= models.FloatField(blank=True, default=0)
+    amount = models.IntegerField(blank=True, default=0)
     detail= RichTextUploadingField(blank=True)
     status=models.CharField(max_length=10, choices=STATUS)
     create_at=models.DateTimeField(auto_now_add=True)
@@ -43,7 +43,7 @@ class Emlak(models.Model):
     slug=models.SlugField(blank=True, null=False)
 
     def __str__(self):
-        return self.tittle
+        return self.title
 
     def image_tag(self):
         return mark_safe('<img src="{}" height="50"/>'.format(self.image.url))

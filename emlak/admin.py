@@ -7,13 +7,13 @@ class EmlakImageInline(admin.TabularInline):
 
 
 class CategoryAdmin(admin.ModelAdmin):
-    list_display = ["tittle", "status"]
+    list_display = ["title", "status"]
     list_filter = ["status"]
 
 
 # Register your models here.
 class EmlakAdmin(admin.ModelAdmin):
-    list_display = ["tittle", "category", "price","image_tag","status" ]
+    list_display = ["title", "category", "price","image_tag","status" ]
     readonly_fields = ("image_tag",)
     list_filter = ["status"]
     inlines = [EmlakImageInline]

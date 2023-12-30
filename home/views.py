@@ -1,24 +1,18 @@
+
 from django.shortcuts import render
-from django.template import loader
-from emlak.models import Emlak
+from emlak.models import Emlak, Category
 
 from .models import Setting
 
 
 
 
-
 def index(request):
-    template = loader.get_template('index.html')
-    context = {}
-
-    emlak = Emlak.objects.all()
-    if bool(emlak):
-        n = len(emlak)
-        nslide = n // 3 + (n % 3 > 0)
-        rooms = [emlak, range(1, nslide), n]
-        context.update({'emlak': emlak})
-    return render(request, 'index.html', context)
+    kategori = Category.objects.all()
+    emlaklar = Emlak.objects.all()
+    context = {'emlaklar': emlaklar,
+               'kategori': kategori,}
+    return render(request, 'index.html', context=context)
 
 
 def hakkimizda(request):

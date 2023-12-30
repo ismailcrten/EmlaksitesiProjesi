@@ -4,13 +4,14 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-o=*%jcab+7-fl0f^bmfpif%=h&c=gypgufba0*c5206)82sa8%'
-
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 DEBUG = True
-
+LOGIN_REDIRECT_URL = 'profil'
 ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'emlak.apps.EmlakConfig',
+    'user.apps.UserConfig',
     'home.apps.HomeConfig',
     'django.contrib.admin',
     'django.contrib.auth',
