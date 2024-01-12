@@ -1,25 +1,29 @@
+"""
+URL configuration for app project.
 
+The `urlpatterns` list routes URLs to views. For more information please see:
+    https://docs.djangoproject.com/en/5.0/topics/http/urls/
+Examples:
+Function views
+    1. Add an import:  from my_app import views
+    2. Add a URL to urlpatterns:  path('', views.home, name='home')
+Class-based views
+    1. Add an import:  from other_app.views import Home
+    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
+Including another URLconf
+    1. Import the include() function: from django.urls import include, path
+    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
+"""
 from django.contrib import admin
 from django.urls import path, include
-from django.conf import settings
+from django.conf import  settings
 from django.conf.urls.static import static
-from user import views
-from home import views
-from user import views as Userviews
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('emlak/', include('emlak.urls')),
-    path('hakkimizda/', views.hakkimizda, name='hakkimizda'),
-    path('', include('home.urls')),
-    path ('user/', include('user.urls'), name='user'),
-    path ('login/', Userviews.login_form, name='login_form'),
-    path ('signup/', Userviews.signup_form, name='signup_form'),
-
-
-    path('ckeditor/', include('ckeditor_uploader.urls')),  # ckeditor için URL'ler
-]
-
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
+    # path("accounts/", include("django.contrib.auth.urls")),
+    path('account/', include('account.urls')),
+    path('', include('renting.urls')),
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + \
+    static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+ 
