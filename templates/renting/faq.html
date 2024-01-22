@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sıkça Sorulan Sorular</title>
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
+
+        .question {
+            font-weight: bold;
+        }
+
+        .answer {
+            margin-top: 5px;
+            display: none;  /* Cevapları gizle */
+        }
+    </style>
+</head>
+<body>
+    <h1>Sıkça Sorulan Sorular</h1>
+
+    <div class="faq-item">
+        <div class="question">Soru 1: Üyelik ücretli mi?</div>
+        <div class="answer">Cevap 1: Hayır üyelik ücretsizdir.</div>
+    </div>
+
+    <div class="faq-item">
+        <div class="question">Soru 2: İstediğim kadar ilan ekleyebilir miyim?</div>
+        <div class="answer">Cevap 2: Evet ilan eklemede herhangi bir sınırlama yoktur.</div>
+    </div>
+
+    <div class="faq-item">
+        <div class="question">Soru 3: Fotoğrafsız ilan ekleyebilir miyim?</div>
+        <div class="answer">Cevap 3: En az 3 fotoğraf eklemeniz gerekiyor. </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.faq-item').click(function() {
+                $(this).find('.answer').slideToggle();
+            });
+        });
+    </script>
+</body>
+</html>

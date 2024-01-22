@@ -265,14 +265,11 @@ def approveView(request, pk):
 
 @login_required(login_url='/account/login')
 def rejectView(request, pk):
-    '''
-    Panel view class
-    '''
     check = check_user(request.user)
     if check == False:
         return redirect('renting:notfound')
     renting = Renting.objects.get(uuid=pk)
-    renting.is_approve = False
+    renting.delete()
     return redirect('renting:panel')
 
 @login_required(login_url='/account/login')
@@ -479,3 +476,6 @@ def not_found(request):
 
 def about(request):
     return render(request, 'renting/about.html')
+
+def faq(request):
+    return render(request, 'renting/faq.html')

@@ -3,7 +3,7 @@ from renting.views import(
     homeView, apartDetailView, createApartView, 
     editApartView, deleteImage, panelView, approveView, 
     rejectView, user_profile, profile, favorite, addFavorite, removeFavorite, ilanlarim,
-    deleteRenting, metaView, contactView, not_found, about
+    deleteRenting, metaView, contactView, not_found, about, faq
 )
 
 app_name = 'renting'
@@ -28,4 +28,5 @@ urlpatterns = [
     path('contact/', contactView, name='contact'),
     path('notfound/', not_found, name='notfound'),
     path('about/', about, name='about'),
+    path ('faq/',faq, name= 'faq'),
 ]
